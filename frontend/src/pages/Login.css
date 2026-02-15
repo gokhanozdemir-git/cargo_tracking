@@ -1,0 +1,385 @@
+/* ==================== */
+/* Global Styles */
+/* ==================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== */
+/* Login Container */
+/* ==================== */
+
+.login-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  overflow: hidden;
+}
+
+/* ==================== */
+/* Left Side - Animation */
+/* ==================== */
+
+.login-left {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  overflow: hidden;
+}
+
+/* Road */
+.road {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: #2a2a2a;
+  border-top: 4px solid #ff6b00;
+  border-bottom: 4px solid #ff6b00;
+}
+
+.road-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    #ff6b00 0px,
+    #ff6b00 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  animation: roadMove 1s linear infinite;
+}
+
+@keyframes roadMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-80px);
+  }
+}
+
+/* Truck */
+.truck-wrapper {
+  position: absolute;
+  bottom: 80px;
+  left: 10%;
+  width: 350px;
+  z-index: 10;
+}
+
+.delivery-truck {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 30px rgba(255, 107, 0, 0.3));
+}
+
+/* Brand Text */
+.brand-text {
+  position: absolute;
+  top: 15%;
+  text-align: center;
+  z-index: 5;
+}
+
+.brand-text h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #ff6b00;
+  text-shadow: 0 0 30px rgba(255, 107, 0, 0.5);
+  letter-spacing: 8px;
+  margin-bottom: 15px;
+}
+
+.brand-text p {
+  font-size: 1.2rem;
+  color: #888;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+/* Background decorations */
+.login-left::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 30% 70%,
+    rgba(255, 107, 0, 0.1) 0%,
+    transparent 50%
+  );
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* ==================== */
+/* Right Side - Form */
+/* ==================== */
+
+.login-right {
+  flex: 0 0 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(180deg, #1a1a1a 0%, #0f0f0f 100%);
+  border-left: 1px solid #2a2a2a;
+}
+
+.login-form-container {
+  width: 100%;
+  max-width: 380px;
+}
+
+/* Header */
+.login-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.login-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.login-header p {
+  font-size: 1rem;
+  color: #888;
+}
+
+/* Error Message */
+.error-message {
+  background: rgba(255, 59, 48, 0.1);
+  border: 1px solid #ff3b30;
+  color: #ff3b30;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #ccc;
+}
+
+.form-group input {
+  padding: 14px 16px;
+  font-size: 1rem;
+  background: #1a1a1a;
+  border: 2px solid #2a2a2a;
+  border-radius: 10px;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+  color: #555;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff6b00;
+  box-shadow: 0 0 0 4px rgba(255, 107, 0, 0.1);
+}
+
+/* Form Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.remember-me input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #ff6b00;
+  cursor: pointer;
+}
+
+.forgot-password {
+  color: #ff6b00;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #ff8533;
+  text-decoration: underline;
+}
+
+/* Login Button */
+.login-button {
+  padding: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #000;
+  background: linear-gradient(135deg, #ff6b00 0%, #ff8533 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.login-button:hover {
+  background: linear-gradient(135deg, #ff8533 0%, #ff9955 100%);
+  box-shadow: 0 8px 25px rgba(255, 107, 0, 0.4);
+}
+
+.login-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #000;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Register Link */
+.register-link {
+  text-align: center;
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid #2a2a2a;
+}
+
+.register-link p {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+.register-link a {
+  color: #ff6b00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+  color: #ff8533;
+  text-decoration: underline;
+}
+
+/* ==================== */
+/* Responsive Design */
+/* ==================== */
+
+@media (max-width: 1024px) {
+  .login-right {
+    flex: 0 0 420px;
+  }
+  
+  .brand-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .truck-wrapper {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+  
+  .login-left {
+    min-height: 300px;
+    padding: 40px 20px;
+  }
+  
+  .brand-text {
+    top: 20px;
+  }
+  
+  .brand-text h1 {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+  
+  .brand-text p {
+    font-size: 0.9rem;
+  }
+  
+  .truck-wrapper {
+    width: 200px;
+    bottom: 60px;
+  }
+  
+  .road {
+    bottom: 60px;
+    height: 60px;
+  }
+  
+  .login-right {
+    flex: 1;
+    padding: 30px 20px;
+  }
+}
