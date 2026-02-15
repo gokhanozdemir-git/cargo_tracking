@@ -16,7 +16,7 @@ Kargo takip ve rota optimizasyonu sistemi. Django backend ve React frontend ile 
 - Django 5.2
 - Django REST Framework
 - CORS Headers
-- SQLite
+- PostreSQL
 
 ### Frontend
 - React
